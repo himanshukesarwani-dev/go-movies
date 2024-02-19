@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import searchIcon from "./assets/search-icon.webp";
+import { MovieCard } from "./components/MovieCard";
+import { Navbar } from "./components/Navbar";
+
+const apiURL = `https://dummyapi.online/api/movies`;
+
+const getData = async () => {
+  const response = await fetch(apiURL);
+  const res = await response.json();
+  return res;
+};
 
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getData();
+      setMovies(data);
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(movies);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="movies-container">
+        {movies.map((movie) => (
+          <MovieCard movie={movie} />
+        ))}
+      </div>
     </div>
   );
 }

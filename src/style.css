@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+#searchIcon {
+  width: 20px;
+  height: 20px;
+}
+* {
+  margin: 0;
+}
+
+.App {
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-heading {
+  font-size: 50px;
+}
+
+.search-bar {
+}
+
+.movies-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* Movie Card Container */
+.movie-card {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(195, 14, 14, 0.1);
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.movie-card-img-container {
+  height: 400px;
+  margin-bottom: 10px;
+}
+
+/* Movie Image */
+.movie-card-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
